@@ -4,11 +4,27 @@ import java.util.List;
 
 public class Sport {
   private int totalResults;
-  private List<Article> articleList;
+  private List<Article> articles;
 
-  private class Article {
+  public int getTotalResults() {
+    return totalResults;
+  }
+
+  public void setTotalResults(int totalResults) {
+    this.totalResults = totalResults;
+  }
+
+  public List<Article> getArticles() {
+    return articles;
+  }
+
+  public void setArticles(List<Article> articles) {
+    this.articles = articles;
+  }
+
+  public class Article {
     private Source source;
-    private String author, title, description, url, urlToImage, publishedAt;
+    private String author,title, description, url, urlToImage, publishedAt;
 
     public String getAuthor() {
       return author;
@@ -58,7 +74,15 @@ public class Sport {
       this.publishedAt = publishedAt;
     }
 
-    private class Source {
+    public Source getSource() {
+      return source;
+    }
+
+    public void setSource(Source source) {
+      this.source = source;
+    }
+
+    public class Source {
       private String name;
 
       public String getName() {
