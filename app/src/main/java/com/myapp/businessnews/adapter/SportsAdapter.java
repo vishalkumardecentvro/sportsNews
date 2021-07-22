@@ -53,7 +53,7 @@ public class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder
     }
 
     private void populate(Sport.Article sportArticle) {
-      binding.tvAuthor.setText(sportArticle.getAuthor());
+      binding.tvAuthor.setText("by- "+sportArticle.getAuthor());
       binding.tvDescription.setText(sportArticle.getDescription());
       binding.tvSource.setText(sportArticle.getSource().getName());
       binding.tvTitle.setText(sportArticle.getTitle());
