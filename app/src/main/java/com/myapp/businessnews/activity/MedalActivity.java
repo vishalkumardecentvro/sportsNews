@@ -41,10 +41,12 @@ public class MedalActivity extends AppCompatActivity {
   }
 
   private void instantiate() {
+    getSupportActionBar().setTitle("Tokyo olympics 2020");
+
     firestore = FirebaseFirestore.getInstance();
+
     countryOlympicMedalsList = new ArrayList<>();
     countryMedalsTableAdapter = new CountryMedalsTableAdapter(this);
-
   }
 
   private void initialize() {

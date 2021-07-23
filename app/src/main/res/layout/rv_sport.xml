@@ -10,7 +10,7 @@
     android:layout_height="wrap_content"
     app:strokeWidth="1dp"
     android:layout_marginBottom="10dp"
-    app:strokeColor="@color/black"
+    app:strokeColor="@color/brand_color_secondary"
     android:padding="10dp"
     app:cardCornerRadius="5dp">
 

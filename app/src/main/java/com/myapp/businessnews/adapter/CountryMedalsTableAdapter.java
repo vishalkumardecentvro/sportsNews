@@ -255,7 +255,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
     @Override
     public void setSelected(@NonNull SelectionState selectionState) {
       super.setSelected(selectionState);
-      setBackgroundColor(context.getResources().getColor(R.color.purple_200));
+      setBackgroundColor(context.getResources().getColor(R.color.brand_color_secondary));
     }
 
     public void setText(String text) {
@@ -283,7 +283,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
     @Override
     public void setSelected(@NonNull SelectionState selectionState) {
       super.setSelected(selectionState);
-      setBackgroundColor(context.getResources().getColor(R.color.purple_200));
+      setBackgroundColor(context.getResources().getColor(R.color.brand_color_secondary));
     }
 
     public void setText(String text) {
