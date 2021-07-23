@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "345253996526",
+    "project_id": "sportsdatabase-47a91",
+    "storage_bucket": "sportsdatabase-47a91.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:345253996526:android:c8dc8b1d4ed9fd23ff10ff",
+        "android_client_info": {
+          "package_name": "com.myapp.businessnews"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "345253996526-vld97mtdj6s04gjds83pe6lkfi58l4dr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDnLKD6pfetk-9REPV2clxfDKe4gE8SII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "345253996526-vld97mtdj6s04gjds83pe6lkfi58l4dr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
