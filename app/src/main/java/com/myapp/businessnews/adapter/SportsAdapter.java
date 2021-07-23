@@ -1,12 +1,17 @@
 package com.myapp.businessnews.adapter;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.myapp.businessnews.R;
 import com.myapp.businessnews.Sport;
 import com.myapp.businessnews.databinding.RvSportBinding;
 import com.squareup.picasso.Picasso;
@@ -50,14 +55,40 @@ public class SportsAdapter extends RecyclerView.Adapter<SportsAdapter.ViewHolder
     public ViewHolder(RvSportBinding binding) {
       super(binding.getRoot());
       this.binding = binding;
+
+      binding.mcvNews.setOnClickListener(v -> openNewsArticle(getAdapterPosition()));
     }
 
     private void populate(Sport.Article sportArticle) {
-      binding.tvAuthor.setText("by- "+sportArticle.getAuthor());
+      binding.tvAuthor.setText("by- " + sportArticle.getAuthor());
       binding.tvDescription.setText(sportArticle.getDescription());
       binding.tvSource.setText(sportArticle.getSource().getName());
       binding.tvTitle.setText(sportArticle.getTitle());
       Picasso.with(context).load(sportArticle.getUrlToImage()).fit().into(binding.ivNewsImage);
+
+      if (sportArticle.getAuthor() == null)
+        binding.tvAuthor.setVisibility(View.GONE);
+      else if (sportArticle.getAuthor().isEmpty())
+        binding.tvAuthor.setVisibility(View.GONE);
+      else
+        binding.tvAuthor.setVisibility(View.VISIBLE);
+
+      if (sportArticle.getUrlToImage() == null)
+        binding.ivNewsImage.setImageDrawable(context.getResources().getDrawable(R.drawable.news_reporter));
+    }
+
+    private void openNewsArticle(int position) {
+      String urlString = sportArticleList.get(position).getUrl();
+      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlString));
+      intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      intent.setPackage("com.android.chrome");
+      try {
+        context.startActivity(intent);
+      } catch (ActivityNotFoundException exception) {
+        intent.setPackage(null);
+        context.startActivity(intent);
+      }
+
     }
   }
 }

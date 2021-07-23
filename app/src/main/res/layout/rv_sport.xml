@@ -23,6 +23,7 @@
         android:id="@+id/ivNewsImage"
         android:layout_width="match_parent"
         android:layout_height="175dp"
+        android:src="@drawable/news_reporter"
         android:layout_marginBottom="5dp" />
 
       <TextView

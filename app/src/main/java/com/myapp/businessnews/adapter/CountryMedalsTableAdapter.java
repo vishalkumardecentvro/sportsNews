@@ -32,7 +32,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
   @NonNull
   @Override
   public AbstractViewHolder onCreateCellViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View cell = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewproduct_tablelayout_cell, parent, false);
+    View cell = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewmedal_tablelayout_cell, parent, false);
 
     return new CellViewHolder(context, cell);
   }
@@ -68,7 +68,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
   @NonNull
   @Override
   public AbstractViewHolder onCreateColumnHeaderViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View columnHeader = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewproduct_tablelayout_column, parent, false);
+    View columnHeader = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewmedal_tablelayout_column, parent, false);
 
     return new ColumnHeaderViewHolder(columnHeader);
   }
@@ -88,7 +88,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
   @NonNull
   @Override
   public AbstractViewHolder onCreateRowHeaderViewHolder(@NonNull ViewGroup parent, int viewType) {
-    View rowHeader = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewproduct_tablelayout_row, parent, false);
+    View rowHeader = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewmedal_tablelayout_row, parent, false);
 
     return new RowHeaderViewHolder(rowHeader);
   }
@@ -104,7 +104,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
   @NonNull
   @Override
   public View onCreateCornerView(@NonNull ViewGroup parent) {
-    return LayoutInflater.from(parent.getContext()).inflate(R.layout.viewproduct_tablelayout_corner, parent, false);
+    return LayoutInflater.from(parent.getContext()).inflate(R.layout.viewmedal_tablelayout_corner, parent, false);
   }
 
   public int getCount() {
