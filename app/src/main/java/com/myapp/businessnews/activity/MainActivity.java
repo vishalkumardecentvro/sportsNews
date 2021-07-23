@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
   private SportsAdapter sportsAdapter;
 
   @Override
-
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -61,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
       @Override
       public void onFailure(Call<Sport> call, Throwable t) {
-        Log.e("--error--", t.toString());
-
+        Toast.makeText(MainActivity.this, "Please check your internet connection!!", Toast.LENGTH_SHORT).show();
       }
     });
   }

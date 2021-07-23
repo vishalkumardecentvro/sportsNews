@@ -1,6 +1,7 @@
 package com.myapp.businessnews.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import androidx.annotation.NonNull;
@@ -65,6 +66,7 @@ public class MedalActivity extends AppCompatActivity {
               public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
                   CountryOlympicMedals country = document.toObject(CountryOlympicMedals.class);
+                  country.setId(document.getId());
 
                   CountryOlympicMedals countryOlympicMedals = new CountryOlympicMedals();
 

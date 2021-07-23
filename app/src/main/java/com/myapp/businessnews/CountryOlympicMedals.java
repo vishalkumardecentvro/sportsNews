@@ -2,11 +2,19 @@ package com.myapp.businessnews;
 
 public class CountryOlympicMedals {
 
-  private String countryName;
+  private String countryName, id;
   private int gold, silver, bronze, rank, total;
 
   public CountryOlympicMedals() {
     // firebase needs empty constructor
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getCountryName() {
