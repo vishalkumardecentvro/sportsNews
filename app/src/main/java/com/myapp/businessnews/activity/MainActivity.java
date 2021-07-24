@@ -2,14 +2,13 @@ package com.myapp.businessnews.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.myapp.businessnews.Connection;
-import com.myapp.businessnews.Sport;
+import com.myapp.businessnews.table.Sport;
 import com.myapp.businessnews.adapter.SportsAdapter;
 import com.myapp.businessnews.databinding.ActivityMainBinding;
 

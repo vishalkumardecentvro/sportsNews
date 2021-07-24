@@ -1,4 +1,4 @@
-package com.myapp.businessnews;
+package com.myapp.businessnews.table;
 
 import java.util.List;
 

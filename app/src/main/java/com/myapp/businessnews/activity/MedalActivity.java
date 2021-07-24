@@ -1,23 +1,23 @@
 package com.myapp.businessnews.activity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.evrencoskun.tableview.listener.ITableViewListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.myapp.businessnews.CountryOlympicMedals;
 import com.myapp.businessnews.adapter.CountryMedalsTableAdapter;
 import com.myapp.businessnews.databinding.ActivityMedalBinding;
+import com.myapp.businessnews.table.CountryOlympicMedals;
+import com.myapp.businessnews.table.MedalTableUpdatedAt;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -29,6 +29,8 @@ public class MedalActivity extends AppCompatActivity {
   private FirebaseFirestore firestore;
   private List<CountryOlympicMedals> countryOlympicMedalsList;
   private CountryMedalsTableAdapter countryMedalsTableAdapter;
+  private MedalTableUpdatedAt medalTableUpdatedAt;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,12 @@ public class MedalActivity extends AppCompatActivity {
     firestore.collection("tokyoOlympicsMedalTable_2021")
             .orderBy("rank")
             .get()
+            .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+              @Override
+              public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                getUpdatedTimestamp();
+              }
+            })
             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
               @Override
               public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
@@ -88,6 +96,26 @@ public class MedalActivity extends AppCompatActivity {
       @Override
       public void onFailure(@NonNull @NotNull Exception e) {
 
+      }
+    });
+  }
+
+  private void getUpdatedTimestamp() {
+    firestore.collection("updated_at")
+            .get()
+            .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+              @Override
+              public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+                for (QueryDocumentSnapshot document : task.getResult()) {
+
+                  medalTableUpdatedAt = document.toObject(MedalTableUpdatedAt.class);
+                  binding.tvUpdatedAt.setText("Last updated at: " + medalTableUpdatedAt.getUpdated_at());
+                }
+              }
+            }).addOnFailureListener(new OnFailureListener() {
+      @Override
+      public void onFailure(@NonNull @NotNull Exception e) {
+        Toast.makeText(MedalActivity.this, "Not able to fetch current updated timestamp", Toast.LENGTH_SHORT).show();
       }
     });
   }

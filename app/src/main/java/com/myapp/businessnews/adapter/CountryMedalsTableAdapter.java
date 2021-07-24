@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 
 import com.evrencoskun.tableview.adapter.AbstractTableAdapter;
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder;
-import com.myapp.businessnews.CountryOlympicMedals;
+import com.myapp.businessnews.table.CountryOlympicMedals;
 import com.myapp.businessnews.R;
 
 import java.util.ArrayList;

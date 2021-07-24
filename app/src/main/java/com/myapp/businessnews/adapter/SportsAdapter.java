@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.myapp.businessnews.R;
-import com.myapp.businessnews.Sport;
+import com.myapp.businessnews.table.Sport;
 import com.myapp.businessnews.databinding.RvSportBinding;
 import com.squareup.picasso.Picasso;
 

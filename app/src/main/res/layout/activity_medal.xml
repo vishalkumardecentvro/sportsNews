@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context=".activity.MedalActivity">
 
-  <com.evrencoskun.tableview.TableView
-    android:id="@+id/tableViewMedals"
+  <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:separator_color="@color/black" />
+    android:orientation="vertical">
 
-</LinearLayout>
+    <com.evrencoskun.tableview.TableView
+      android:id="@+id/tableViewMedals"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="10dp"
+      app:separator_color="@color/black" />
+
+    <TextView
+      android:id="@+id/tvUpdatedAt"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="10dp"
+      android:textSize="16sp"
+      android:textStyle="italic" />
+  </LinearLayout>
+
+</ScrollView>

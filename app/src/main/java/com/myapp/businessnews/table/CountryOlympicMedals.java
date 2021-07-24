@@ -1,4 +1,4 @@
-package com.myapp.businessnews;
+package com.myapp.businessnews.table;
 
 public class CountryOlympicMedals {
 
