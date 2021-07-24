@@ -1,6 +1,6 @@
-package com.myapp.businessnews;
+package com.myapp.sportsnews;
 
-import com.myapp.businessnews.table.Sport;
+import com.myapp.sportsnews.table.Sport;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;

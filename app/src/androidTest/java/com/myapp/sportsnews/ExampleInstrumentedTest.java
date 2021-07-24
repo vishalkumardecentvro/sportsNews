@@ -1,4 +1,4 @@
-package com.myapp.businessnews;
+package com.myapp.sportsnews;
 
 import android.content.Context;
 

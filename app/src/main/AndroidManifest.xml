@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.myapp.businessnews">
+  package="com.myapp.sportsnews">
 
   <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,8 +11,8 @@
     android:roundIcon="@mipmap/ic_launcher_round"
     android:supportsRtl="true"
     android:theme="@style/Theme.BusinessNews">
-    <activity android:name=".activity.MedalActivity"></activity>
-    <activity android:name=".activity.MainActivity">
+    <activity android:name="com.myapp.sportsnews.activity.MedalActivity"></activity>
+    <activity android:name="com.myapp.sportsnews.activity.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

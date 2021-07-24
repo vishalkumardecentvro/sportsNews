@@ -1,12 +1,15 @@
-package com.myapp.businessnews.activity;
+package com.myapp.sportsnews.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.evrencoskun.tableview.listener.ITableViewListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -14,10 +17,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.myapp.businessnews.adapter.CountryMedalsTableAdapter;
-import com.myapp.businessnews.databinding.ActivityMedalBinding;
-import com.myapp.businessnews.table.CountryOlympicMedals;
-import com.myapp.businessnews.table.MedalTableUpdatedAt;
+import com.myapp.sportsnews.adapter.MedalsTableAdapter;
+import com.myapp.sportsnews.databinding.ActivityMedalBinding;
+import com.myapp.sportsnews.table.CountryMedals;
+import com.myapp.sportsnews.table.MedalTableUpdatedAt;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -27,8 +30,8 @@ import java.util.List;
 public class MedalActivity extends AppCompatActivity {
   private ActivityMedalBinding binding;
   private FirebaseFirestore firestore;
-  private List<CountryOlympicMedals> countryOlympicMedalsList;
-  private CountryMedalsTableAdapter countryMedalsTableAdapter;
+  private List<CountryMedals> countryMedalsList;
+  private MedalsTableAdapter countryMedalsTableAdapter;
   private MedalTableUpdatedAt medalTableUpdatedAt;
 
 
@@ -50,8 +53,8 @@ public class MedalActivity extends AppCompatActivity {
 
     firestore = FirebaseFirestore.getInstance();
 
-    countryOlympicMedalsList = new ArrayList<>();
-    countryMedalsTableAdapter = new CountryMedalsTableAdapter(this);
+    countryMedalsList = new ArrayList<>();
+    countryMedalsTableAdapter = new MedalsTableAdapter(this);
   }
 
   private void initialize() {
@@ -60,6 +63,7 @@ public class MedalActivity extends AppCompatActivity {
   }
 
   private void listen() {
+    binding.tableViewMedals.setTableViewListener(new MedalTableListener());
   }
 
   private void load() {
@@ -76,21 +80,21 @@ public class MedalActivity extends AppCompatActivity {
               @Override
               public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                  CountryOlympicMedals country = document.toObject(CountryOlympicMedals.class);
+                  CountryMedals country = document.toObject(CountryMedals.class);
                   country.setId(document.getId());
 
-                  CountryOlympicMedals countryOlympicMedals = new CountryOlympicMedals();
+                  CountryMedals countryMedals = new CountryMedals();
 
-                  countryOlympicMedals.setCountryName(country.getCountryName());
-                  countryOlympicMedals.setGold(country.getGold());
-                  countryOlympicMedals.setSilver(country.getSilver());
-                  countryOlympicMedals.setBronze(country.getBronze());
-                  countryOlympicMedals.setRank(country.getRank());
-                  countryOlympicMedals.setTotal(country.getTotal());
+                  countryMedals.setCountryName(country.getCountryName());
+                  countryMedals.setGold(country.getGold());
+                  countryMedals.setSilver(country.getSilver());
+                  countryMedals.setBronze(country.getBronze());
+                  countryMedals.setRank(country.getRank());
+                  countryMedals.setTotal(country.getTotal());
 
-                  countryOlympicMedalsList.add(countryOlympicMedals);
+                  countryMedalsList.add(countryMedals);
                 }
-                countryMedalsTableAdapter.setMedals(countryOlympicMedalsList);
+                countryMedalsTableAdapter.setMedals(countryMedalsList);
               }
             }).addOnFailureListener(new OnFailureListener() {
       @Override
@@ -118,6 +122,34 @@ public class MedalActivity extends AppCompatActivity {
         Toast.makeText(MedalActivity.this, "Not able to fetch current updated timestamp", Toast.LENGTH_SHORT).show();
       }
     });
+  }
+
+  private class MedalTableListener implements ITableViewListener {
+    @Override
+    public void onCellClicked(@NonNull RecyclerView.ViewHolder cellView, int column, int row) {
+
+    }
+
+    @Override
+    public void onCellLongPressed(@NonNull RecyclerView.ViewHolder cellView, int column, int row) {
+    }
+
+    @Override
+    public void onColumnHeaderClicked(@NonNull RecyclerView.ViewHolder columnHeaderView, int column) {
+    }
+
+    @Override
+    public void onColumnHeaderLongPressed(@NonNull RecyclerView.ViewHolder columnHeaderView, int column) {
+    }
+
+    @Override
+    public void onRowHeaderClicked(@NonNull RecyclerView.ViewHolder rowHeaderView, int row) {
+
+    }
+
+    @Override
+    public void onRowHeaderLongPressed(@NonNull RecyclerView.ViewHolder rowHeaderView, int row) {
+    }
   }
 
 }

@@ -1,11 +1,11 @@
-package com.myapp.businessnews.table;
+package com.myapp.sportsnews.table;
 
-public class CountryOlympicMedals {
+public class CountryMedals {
 
   private String countryName, id;
   private int gold, silver, bronze, rank, total;
 
-  public CountryOlympicMedals() {
+  public CountryMedals() {
     // firebase needs empty constructor
   }
 

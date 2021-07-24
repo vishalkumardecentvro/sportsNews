@@ -1,4 +1,4 @@
-package com.myapp.businessnews.adapter;
+package com.myapp.sportsnews.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -13,19 +13,19 @@ import androidx.annotation.Nullable;
 
 import com.evrencoskun.tableview.adapter.AbstractTableAdapter;
 import com.evrencoskun.tableview.adapter.recyclerview.holder.AbstractViewHolder;
-import com.myapp.businessnews.table.CountryOlympicMedals;
-import com.myapp.businessnews.R;
+import com.myapp.sportsnews.R;
+import com.myapp.sportsnews.table.CountryMedals;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class CountryMedalsTableAdapter extends AbstractTableAdapter {
+public class MedalsTableAdapter extends AbstractTableAdapter {
 
   private final Context context;
 
-  private List<CountryOlympicMedals> products;
+  private List<CountryMedals> products;
 
-  public CountryMedalsTableAdapter(Context context) {
+  public MedalsTableAdapter(Context context) {
     this.context = context;
   }
 
@@ -114,7 +114,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
     return products.size();
   }
 
-  public void setMedals(List<CountryOlympicMedals> products) {
+  public void setMedals(List<CountryMedals> products) {
     this.products = products;
     notifyDatasetChanged();
   }
@@ -144,7 +144,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
   private ArrayList<List> getCells() {
     ArrayList<List> cells = new ArrayList<>();
 
-    for (CountryOlympicMedals product : products) {
+    for (CountryMedals product : products) {
       ArrayList<Cell> cell = getCell(product);
 
       if (cell != null) cells.add(cell);
@@ -153,7 +153,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
     return cells;
   }
 
-  private ArrayList<Cell> getCell(CountryOlympicMedals country) {
+  private ArrayList<Cell> getCell(CountryMedals country) {
     ArrayList<Cell> cell = new ArrayList<>();
 
     if (!validateFilters(country)) return null;
@@ -177,7 +177,7 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
     setAllItems(columns, rows, cells);
   }
 
-  private boolean validateFilters(CountryOlympicMedals product) {
+  private boolean validateFilters(CountryMedals product) {
     return true;
   }
 
@@ -206,8 +206,8 @@ public class CountryMedalsTableAdapter extends AbstractTableAdapter {
       textView.setText(text);
     }
 
-    public String getProductString() {
-      return productString;
+    public int getProductString() {
+      return getAdapterPosition();
     }
 
     public void setProductString(String productString) {

@@ -1,4 +1,4 @@
-package com.myapp.businessnews.activity;
+package com.myapp.sportsnews.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,10 +7,10 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.myapp.businessnews.Connection;
-import com.myapp.businessnews.table.Sport;
-import com.myapp.businessnews.adapter.SportsAdapter;
-import com.myapp.businessnews.databinding.ActivityMainBinding;
+import com.myapp.sportsnews.Connection;
+import com.myapp.sportsnews.table.Sport;
+import com.myapp.sportsnews.adapter.SportsAdapter;
+import com.myapp.sportsnews.databinding.ActivityMainBinding;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     initialize();
     listen();
     load();
-
   }
 
   private void instantiate() {

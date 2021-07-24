@@ -1,4 +1,4 @@
-package com.myapp.businessnews.adapter;
+package com.myapp.sportsnews.adapter;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -11,9 +11,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.myapp.businessnews.R;
-import com.myapp.businessnews.table.Sport;
-import com.myapp.businessnews.databinding.RvSportBinding;
+import com.myapp.sportsnews.R;
+import com.myapp.sportsnews.table.Sport;
+import com.myapp.sportsnews.databinding.RvSportBinding;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
