@@ -6,7 +6,9 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.evrencoskun.tableview.listener.ITableViewListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -60,6 +62,7 @@ public class MedalActivity extends AppCompatActivity {
 
   private void load() {
     firestore.collection("tokyoOlympicsMedalTable_2021")
+            .orderBy("rank")
             .get()
             .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
               @Override
@@ -88,4 +91,5 @@ public class MedalActivity extends AppCompatActivity {
       }
     });
   }
+
 }
